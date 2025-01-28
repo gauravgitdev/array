@@ -1,0 +1,53 @@
+  int firstpoint(vector<int>arr,int x){
+      int n=arr.size()-1;
+      int result;
+      int low=0;
+      int high=n;
+      int mid;
+      while(low<=high){
+          mid=(low+high)/2;
+          if(arr[mid]==x){
+              high=mid-1;
+              result=mid;
+          }
+          else if(arr[mid]>x){
+              high=mid-1;
+          }
+          else{
+              low=mid+1;
+          }
+          
+      }return result;
+      
+  }
+   
+    int lastpoint(vector<int>arr,int x){
+      int n=arr.size()-1;
+      int result;
+      int low=0;
+      int high=n;
+      int mid;
+      while(low<=high){
+           mid=(low+high)/2;
+          if(arr[mid]==x){
+              low=mid+1;
+              result=mid;
+          }
+          else if(arr[mid]>x){
+              high=mid-1;
+          }
+          else{
+              low=mid+1;
+          }
+          
+      }return result;
+      
+  }
+    vector<int> find(vector<int>& arr, int x) {
+        
+        int low=-1;
+        int high=-1;
+        low=firstpoint(arr,x);
+        high=lastpoint(arr,x);
+        return {low,high};
+    }
